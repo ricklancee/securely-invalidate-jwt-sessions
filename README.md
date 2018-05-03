@@ -25,7 +25,8 @@ Siging the JWT with an combination of the passwordHash, hashedSid and app secret
 
 1. When the user changes his or her password the token becomes invalid.
 2. When the session is removed from the database, expired or is tampered with the token becomes invalid.
-3. When the app secret changes or tokens are used in another environment the token becomes invalid.
+3. No two login with the same user will have the same JWT token or session.
+4. When the app secret changes or tokens are used in another environment the token becomes invalid.
 
 #### on auth request:
 
