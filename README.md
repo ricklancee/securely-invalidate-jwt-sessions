@@ -35,7 +35,7 @@ Siging the JWT with an combination of the passwordHash, hashedSid and app secret
 3. Find a session in the database
  - If not found: throw an Auth error
 4. Use the user id to retrieve the password hash from the db
-5. Verify the JWT with the session hash and password hash
+5. Verify the JWT with the session hash, password hash and app secret
  - If invalid: throw an Auth error
 
 # Caveats
