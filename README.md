@@ -14,7 +14,7 @@ yarn jest
 #### On successfull login:
 
 1. Create a new session identifier (sid) (`crypto.randomBytes`)
-2. Hash the sid (`SHA-256` + `app secret`)
+2. Hash the sid (`createHmac('sha256', appSecret)`)
 3. Save the hashed sid to the database with the user id (optionally add an expires date).
 4. Create a JWT, with the sid as payload and sign it with a secret composed of the users password hash, the hashed sid and the app secret:
     ```
@@ -42,4 +42,4 @@ Siging the JWT with an combination of the passwordHash, hashedSid and app secret
 
 Siging the JWT with the password requires a strategy to send a new token to the user if the user changes his or her password while logged in (ex. via a settings screen). If the user does not get a new JWT any new requests will be unauthorized.
 
-Only siging a JWT with the session hash and app secret might be enough, however you need to manually invalid sessions in the db when a user changes his password.
+Only siging a JWT with the session hash and app secret might be enough, however you need to manually invalidate sessions in the db when a user changes his password.
